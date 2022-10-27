@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-info-popup',
@@ -10,9 +11,13 @@ import { CommonModule } from '@angular/common';
 })
 export class InfoPopupComponent implements OnInit {
 
+
   constructor() { }
 
+  @Input() userId:any
+
   ngOnInit(): void {
+
   }
 
 }

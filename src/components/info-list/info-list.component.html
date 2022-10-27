@@ -1,5 +1,7 @@
-<div>info-list works!</div>
-<div *ngFor="let users of user">
+<div *ngFor="let users of user" (click)="onClickHandler(users.data)">
   <div>{{ users.data.author }}</div>
   <img src={{users.data.thumbnail}} />
+  
 </div>
+
+<app-info-popup [userId]="userId"></app-info-popup>
