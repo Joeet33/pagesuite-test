@@ -9,6 +9,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http'
   templateUrl: './info-list.component.html',
   styleUrls: ['./info-list.component.css']
 })
+
 export class InfoListComponent implements OnInit {
 
   user:any = []
@@ -16,9 +17,9 @@ export class InfoListComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get("https://www.reddit.com/r/todayilearned/hot.json?limit=25").subscribe((res) => {
-      console.log(res)
-      this.user = res
+    this.http.get("https://www.reddit.com/r/todayilearned/hot.json?limit=25").subscribe((res: any) => {
+      this.user = res.data.children
+      console.log(this.user)
     })
   }
 

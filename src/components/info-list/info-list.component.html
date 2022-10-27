@@ -1,1 +1,5 @@
 <div>info-list works!</div>
+<div *ngFor="let users of user">
+  <div>{{ users.data.author }}</div>
+  <img src={{users.data.thumbnail}} />
+</div>
