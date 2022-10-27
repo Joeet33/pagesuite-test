@@ -1,7 +1,5 @@
 <div *ngFor="let users of user" (click)="onClickHandler(users.data)">
   <div>{{ users.data.author }}</div>
   <img src={{users.data.thumbnail}} />
-  
 </div>
-
-<app-info-popup [userId]="userId"></app-info-popup>
+<div class="test" *ngIf="modalPopup.modalPopup"><app-info-popup [userData]="userData"></app-info-popup></div>

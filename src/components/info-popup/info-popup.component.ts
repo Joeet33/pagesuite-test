@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ModalPopupService } from 'src/services/modal-popup.service';
 
 
 @Component({
@@ -12,12 +13,17 @@ import { CommonModule } from '@angular/common';
 export class InfoPopupComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(public modalPopup: ModalPopupService) { }
 
-  @Input() userId:any
+  @Input() userData:any
 
   ngOnInit(): void {
 
   }
 
+  onClickHandler() {
+    this.modalPopup.modalPopup = !this.modalPopup.modalPopup
+    console.log(this.modalPopup);
+    
+  }
 }
