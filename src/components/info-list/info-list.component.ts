@@ -15,6 +15,8 @@ import { Children, Root, UserType } from 'src/interfaces/interface';
 })
 export class InfoListComponent implements OnInit {
   user: Children[] = [];
+  test = 'default';
+  test2 = 'nsfw';
 
   constructor(
     private http: HttpClient,
