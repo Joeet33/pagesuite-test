@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { InfoPopupComponent } from '../info-popup/info-popup.component';
-import { ModalPopupService } from 'src/services/modal-popup.service';
+import { ShowModalService } from 'src/services/showModal/show-modal.service';
+import { UserDataService } from 'src/services/userData/user-data.service';
+import { Children, Root, UserType } from 'src/interfaces/interface';
 
 @Component({
   selector: 'app-info-list',
@@ -12,25 +14,26 @@ import { ModalPopupService } from 'src/services/modal-popup.service';
   styleUrls: ['./info-list.component.css'],
 })
 export class InfoListComponent implements OnInit {
-  user: any = [];
-  userData: any = '';
+  user: Children[] = [];
 
-
-  constructor(private http: HttpClient, public modalPopup: ModalPopupService) {}
+  constructor(
+    private http: HttpClient,
+    public modalPopup: ShowModalService,
+    public userData: UserDataService
+  ) {}
 
   ngOnInit(): void {
     this.http
-      .get('https://www.reddit.com/r/todayilearned/hot.json?limit=25')
-      .subscribe((res: any) => {
+      .get<Root>('https://www.reddit.com/r/todayilearned/hot.json?limit=25')
+      .subscribe((res) => {
         this.user = res.data.children;
       });
-      console.log(this.modalPopup)
+    console.log(this.modalPopup);
   }
 
-  onClickHandler(users: any) {
-    this.userData = users;
-    this.modalPopup.modalPopup = !this.modalPopup.modalPopup
+  onClickHandler(users: UserType) {
+    this.userData.userData = users;
+    this.modalPopup.modalPopup = !this.modalPopup.modalPopup;
     console.log(this.modalPopup);
-    
   }
 }

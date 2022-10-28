@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ModalPopupService } from 'src/services/modal-popup.service';
+import { ShowModalService } from 'src/services/showModal/show-modal.service';
+import { UserDataService } from 'src/services/userData/user-data.service';
 
 
 @Component({
@@ -8,22 +9,18 @@ import { ModalPopupService } from 'src/services/modal-popup.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './info-popup.component.html',
-  styleUrls: ['./info-popup.component.css']
+  styleUrls: ['./info-popup.component.css'],
 })
 export class InfoPopupComponent implements OnInit {
+  constructor(
+    public modalPopup: ShowModalService,
+    public userData: UserDataService
+  ) {}
 
-
-  constructor(public modalPopup: ModalPopupService) { }
-
-  @Input() userData:any
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   onClickHandler() {
-    this.modalPopup.modalPopup = !this.modalPopup.modalPopup
+    this.modalPopup.modalPopup = !this.modalPopup.modalPopup;
     console.log(this.modalPopup);
-    
   }
 }
