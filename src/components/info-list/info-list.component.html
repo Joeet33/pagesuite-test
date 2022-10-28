@@ -1,15 +1,12 @@
 <div *ngFor="let users of user" (click)="onClickHandler(users.data)">
-  <div>{{ users.data.author }}</div>
+  <div
+    *ngIf="!(users.data.thumbnail === DEFAULT || users.data.thumbnail === NSFW)"
+  >
+    <div>{{ users.data.author }}</div>
 
-  <img
-    *ngIf="
-      !(users.data.thumbnail === test || users.data.thumbnail === test2);
-      else placeholder
-    "
-    src={{users.data.thumbnail}}
-  />
-  <ng-template #placeholder> No Image </ng-template>
+    <img src={{users.data.thumbnail}} />
+  </div>
 </div>
-<div class="test" *ngIf="modalPopup.modalPopup">
+<div class="test" *ngIf="modalPopup.showModal">
   <app-info-popup></app-info-popup>
 </div>

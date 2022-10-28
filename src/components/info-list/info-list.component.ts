@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { InfoPopupComponent } from '../info-popup/info-popup.component';
-import { ShowModalService } from 'src/services/showModal/show-modal.service';
-import { UserDataService } from 'src/services/userData/user-data.service';
-import { Children, Root, UserType } from 'src/interfaces/interface';
+import { ShowModalService } from 'src/services/show-modal/show-modal.service';
+import { UserDataService } from 'src/services/user-data/user-data.service';
+import { Children, Root, UserType } from 'src/interfaces/data-types';
 
 @Component({
   selector: 'app-info-list',
@@ -15,8 +15,8 @@ import { Children, Root, UserType } from 'src/interfaces/interface';
 })
 export class InfoListComponent implements OnInit {
   user: Children[] = [];
-  test = 'default';
-  test2 = 'nsfw';
+  DEFAULT = 'default';
+  NSFW = 'nsfw';
 
   constructor(
     private http: HttpClient,
@@ -30,12 +30,10 @@ export class InfoListComponent implements OnInit {
       .subscribe((res) => {
         this.user = res.data.children;
       });
-    console.log(this.modalPopup);
   }
 
   onClickHandler(users: UserType) {
-    this.userData.userData = users;
-    this.modalPopup.modalPopup = !this.modalPopup.modalPopup;
-    console.log(this.modalPopup);
+    this.userData.dataObj = users;
+    this.modalPopup.showModal = !this.modalPopup.showModal;
   }
 }

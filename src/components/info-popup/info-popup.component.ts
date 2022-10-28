@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShowModalService } from 'src/services/showModal/show-modal.service';
-import { UserDataService } from 'src/services/userData/user-data.service';
-
+import { ShowModalService } from 'src/services/show-modal/show-modal.service';
+import { UserDataService } from 'src/services/user-data/user-data.service';
 
 @Component({
   selector: 'app-info-popup',
@@ -20,7 +19,6 @@ export class InfoPopupComponent implements OnInit {
   ngOnInit(): void {}
 
   onClickHandler() {
-    this.modalPopup.modalPopup = !this.modalPopup.modalPopup;
-    console.log(this.modalPopup);
+    this.modalPopup.showModal = !this.modalPopup.showModal;
   }
 }

@@ -6,5 +6,5 @@ import { Injectable } from '@angular/core';
 export class ShowModalService {
   constructor() {}
 
-  modalPopup = false;
+  showModal = false;
 }
