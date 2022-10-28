@@ -1,6 +1,15 @@
-<div id="overlay" (click)="onClickHandler()"></div>
+<div
+  class="fixed bg-black opacity-80 w-screen h-screen left-0 top-0"
+  (click)="onClickHandler()"
+></div>
 
-<div class="test">
+<div
+  class="fixed bg-blue-500 h-2/4 w-2/4 top-1/4 left-1/4 z-10 rounded-lg border-solid border-black border-2"
+>
+<button class="ml-auto float-right text-4xl font-bold pr-4 pt-4" (click)="onClickHandler()">X</button>
+<div class="p-10">
   <div>{{ userData.dataObj.id }}</div>
-  <div>test</div>
+
+</div>
+ 
 </div>

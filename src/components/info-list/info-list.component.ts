@@ -10,13 +10,14 @@ import { Children, Root, UserType } from 'src/interfaces/data-types';
   selector: 'app-info-list',
   standalone: true,
   imports: [CommonModule, HttpClientModule, InfoPopupComponent],
-  templateUrl: './info-list.component.html',
-  styleUrls: ['./info-list.component.css'],
+  templateUrl: './info-list.component.html'
 })
 export class InfoListComponent implements OnInit {
   user: Children[] = [];
   DEFAULT = 'default';
   NSFW = 'nsfw';
+
+
 
   constructor(
     private http: HttpClient,
@@ -28,7 +29,7 @@ export class InfoListComponent implements OnInit {
     this.http
       .get<Root>('https://www.reddit.com/r/todayilearned/hot.json?limit=25')
       .subscribe((res) => {
-        this.user = res.data.children;
+        this.user = res.data.children.filter(obj => !(obj.data.thumbnail === this.DEFAULT || obj.data.thumbnail === this.NSFW));
       });
   }
 

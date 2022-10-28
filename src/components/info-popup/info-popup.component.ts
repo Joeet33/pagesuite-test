@@ -7,8 +7,7 @@ import { UserDataService } from 'src/services/user-data/user-data.service';
   selector: 'app-info-popup',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './info-popup.component.html',
-  styleUrls: ['./info-popup.component.css'],
+  templateUrl: './info-popup.component.html'
 })
 export class InfoPopupComponent implements OnInit {
   constructor(

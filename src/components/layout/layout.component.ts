@@ -5,8 +5,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-layout',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.css']
+  templateUrl: './layout.component.html'
 })
 export class LayoutComponent implements OnInit {
 
