@@ -20,4 +20,8 @@ export class InfoPopupComponent implements OnInit {
   onClickHandler() {
     this.modalPopup.showModal = !this.modalPopup.showModal;
   }
+
+  openLink(){
+    window.open(this.userData.dataObj.url)
+  }
 }

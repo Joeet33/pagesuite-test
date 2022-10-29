@@ -4,12 +4,49 @@
 ></div>
 
 <div
-  class="fixed bg-blue-500 h-2/4 w-2/4 top-1/4 left-1/4 z-10 rounded-lg border-solid border-black border-2"
+  class="fixed bg-blue-500 py-4 h- w-2/4 top-1/4 left-1/4 z-10 rounded-lg border-solid border-black border-2"
 >
-<button class="ml-auto float-right text-4xl font-bold pr-4 pt-4" (click)="onClickHandler()">X</button>
-<div class="p-10">
-  <div>{{ userData.dataObj.id }}</div>
+  <div class="flex">
 
-</div>
- 
+      <div class="flex flex-col m-auto">
+      <div class="m-auto font-bold text-2xl">{{ userData.dataObj.subreddit }}</div>
+        <div class="ml-3 my-auto">
+        Subs: {{ userData.dataObj.subreddit_subscribers | number }}
+        </div>
+      </div>
+    <button
+      class=" text-4xl font-bold pr-3 pt-1"
+      (click)="onClickHandler()"
+    >
+      X
+    </button>
+  </div>
+  <div class="pl-10 pt-6 text-md font-bold">{{ userData.dataObj.author }}</div>
+  <div class="px-10 pb-10 pt-4">
+    <div class="flex flex-col">
+      <div class="flex m-auto">
+        <img class="rounded-lg" src={{userData.dataObj.thumbnail}} />
+        <div class="pl-5 my-auto">{{ userData.dataObj.title }}</div>
+      </div>
+
+      <div class="flex text-center justify-between m-auto py-4">
+        <div class="flex flex-col px-2">
+          <div>Votes</div>
+          <div>{{ userData.dataObj.ups }}</div>
+        </div>
+
+        <div class="flex flex-col px-2">
+          <div>Ratio</div>
+          <div>{{ userData.dataObj.upvote_ratio }}</div>
+        </div>
+
+        <div class="flex flex-col px-2">
+          <div>Awards</div>
+          <div>{{ userData.dataObj.total_awards_received }}</div>
+        </div>
+      </div>
+
+      <button (click)="openLink()">Open Wikipedia</button>
+    </div>
+  </div>
 </div>
