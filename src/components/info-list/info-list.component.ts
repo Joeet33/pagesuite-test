@@ -1,16 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { InfoPopupComponent } from '../info-popup/info-popup.component';
 import { ShowModalService } from 'src/services/show-modal/show-modal.service';
 import { UserDataService } from 'src/services/user-data/user-data.service';
 import { Children, Root, UserType } from 'src/interfaces/data-types';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-info-list',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, InfoPopupComponent],
-  templateUrl: './info-list.component.html'
+  imports: [CommonModule, InfoPopupComponent],
+  templateUrl: './info-list.component.html',
+  animations: [
+    trigger("fade", [
+  transition("void => *", [
+    style({backgroundColor: "yellow", opacity: 0}),
+    animate(2000, style({backgroundColor:"white", opacity:1}))
+  ])
+    ])
+  ]
 })
 export class InfoListComponent implements OnInit {
   user: Children[] = [];

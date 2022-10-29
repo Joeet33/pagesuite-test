@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShowModalService } from 'src/services/show-modal/show-modal.service';
 import { UserDataService } from 'src/services/user-data/user-data.service';
