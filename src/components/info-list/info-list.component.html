@@ -8,10 +8,10 @@
 
     <div class="flex mt-2">
       <img class="rounded-md border border-2 border-black" src={{users.data.thumbnail}} />
-      <div class="ml-3">{{ users.data.title }}</div>
+      <div class="ml-3 my-auto">{{ users.data.title }}</div>
     </div>
   </div>
 </div>
 <div *ngIf="modalPopup.showModal">
-  <app-info-popup></app-info-popup>
+  <app-info-popup class="ease-in"></app-info-popup>
 </div>
