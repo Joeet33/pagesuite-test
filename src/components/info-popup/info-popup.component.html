@@ -4,47 +4,50 @@
 ></div>
 
 <div
-  class="fixed bg-lime-300 py-4 h-3/5 w-2/4 top-1/4 left-1/4 m-auto z-10 rounded-lg border-solid border-black border-2"
+  class="fixed bg-lime-300 py-4 h-3/5 top-1/4 m-auto z-10 rounded-lg border-solid border-black border-2 w-3/4 left-12 md:left-1/4 md:w-2/4"
 >
   <div class="flex">
     <div class="flex flex-col m-auto cursor-default">
-      <div class="m-auto font-bold text-2xl">
+      <div class="m-auto font-bold text-md md:text-2xl">
         {{ userData.dataObj.subreddit }}
       </div>
-      <div class="ml-3 my-auto">
+      <div class="ml-3 my-auto text-center text-sm md:text-auto lg:hidden">
+        {{ userData.dataObj.subreddit_subscribers | number }}
+      </div>
+      <div class="ml-3 my-auto text-center text-sm md:text-auto hidden lg:block">
         Subs: {{ userData.dataObj.subreddit_subscribers | number }}
       </div>
     </div>
-    <button class="text-4xl font-bold pr-3 pt-1 hover:scale-105" (click)="onClickHandler()">
+    <button class="font-bold pr-3 hover:scale-105 text-md md:text-3xl lg:text-4xl lg:pt-1" (click)="onClickHandler()">
       X
     </button>
   </div>
  
 
   <div class="relative flex flex-col px-10 pb-10 pt-4 h-5/6 overflow-y-scroll">
-  <div class="pt-6 text-md font-bold cursor-default">{{ userData.dataObj.author }}</div>
+  <div class=" text-md font-bold cursor-default break-all text-center md:pt-6 md:pl-5 lg:text-left">Author: {{ userData.dataObj.author }}</div>
   
 
-      <div class="flex m-auto">
-        <img class="rounded-lg border-2 border-black" src={{userData.dataObj.thumbnail}} />
-        <div class="pl-5 my-auto font-bold cursor-default">{{ userData.dataObj.title }}</div>
-      </div>
+
+    <img class="rounded-lg border-2 border-black w-40 h-40 m-auto my-5" src={{userData.dataObj.thumbnail}} />
+    <div class="pl-5 my-auto font-bold cursor-default">{{ userData.dataObj.title }}</div>
+  
 
       <div
-        class="flex text-center justify-between mx-auto my-4 p-5 bg-red-500 rounded-lg w-96 font-bold text-md bg-indigo-700 border-2 border-black cursor-default"
+        class="flex flex-col md:flex-row text-center mx-auto my-4 p-5 bg-red-500 rounded-lg font-bold text-md bg-indigo-700 border-2 border-black cursor-default md:w-72 md:justify-between lg:w-96"
       >
-        <div class="flex flex-col">
-          <div>Votes</div>
+        <div class="flex md:flex-col">
+          <div class="pr-2 md:pr-0">Votes</div>
           <div>{{ userData.dataObj.ups }}</div>
         </div>
 
-        <div class="flex flex-col">
-          <div>Ratio</div>
+        <div class="flex md:flex-col">
+          <div class="pr-2 md:pr-0">Ratio</div>
           <div>{{ userData.dataObj.upvote_ratio }}</div>
         </div>
 
-        <div class="flex flex-col">
-          <div>Awards</div>
+        <div class="flex md:flex-col">
+          <div class="pr-2 md:pr-0">Awards</div>
           <div>{{ userData.dataObj.total_awards_received }}</div>
         </div>
       </div>
