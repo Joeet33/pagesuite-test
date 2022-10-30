@@ -4,10 +4,10 @@
 ></div>
 
 <div
-  class="fixed bg-blue-500 py-4 h- w-2/4 top-1/4 left-1/4 z-10 rounded-lg border-solid border-black border-2"
+  class="fixed bg-lime-300 py-4 h- w-2/4 top-1/4 left-1/4 z-10 rounded-lg border-solid border-black border-2"
 >
   <div class="flex">
-    <div class="flex flex-col m-auto">
+    <div class="flex flex-col m-auto cursor-default">
       <div class="m-auto font-bold text-2xl">
         {{ userData.dataObj.subreddit }}
       </div>
@@ -15,20 +15,20 @@
         Subs: {{ userData.dataObj.subreddit_subscribers | number }}
       </div>
     </div>
-    <button class="text-4xl font-bold pr-3 pt-1" (click)="onClickHandler()">
+    <button class="text-4xl font-bold pr-3 pt-1 hover:scale-105" (click)="onClickHandler()">
       X
     </button>
   </div>
-  <div class="pl-10 pt-6 text-md font-bold">{{ userData.dataObj.author }}</div>
+  <div class="pl-10 pt-6 text-md font-bold cursor-default">{{ userData.dataObj.author }}</div>
   <div class="px-10 pb-10 pt-4">
     <div class="flex flex-col">
       <div class="flex m-auto">
-        <img class="rounded-lg" src={{userData.dataObj.thumbnail}} />
-        <div class="pl-5 my-auto font-bold">{{ userData.dataObj.title }}</div>
+        <img class="rounded-lg border-2 border-black" src={{userData.dataObj.thumbnail}} />
+        <div class="pl-5 my-auto font-bold cursor-default">{{ userData.dataObj.title }}</div>
       </div>
 
       <div
-        class="flex text-center justify-between mx-auto my-4 p-5 bg-red-500 rounded-lg w-96 font-bold text-md"
+        class="flex text-center justify-between mx-auto my-4 p-5 bg-red-500 rounded-lg w-96 font-bold text-md bg-indigo-700 border-2 border-black cursor-default"
       >
         <div class="flex flex-col">
           <div>Votes</div>
@@ -47,7 +47,7 @@
       </div>
 
       <button
-        class="border-solid border-black border-2 w-28 m-auto rounded-lg hover:scale-105"
+        class="border-solid border-black border-2 w-28 m-auto rounded-lg hover:scale-105 bg-indigo-700"
         (click)="openLink()"
       >
         Open Wikipedia
