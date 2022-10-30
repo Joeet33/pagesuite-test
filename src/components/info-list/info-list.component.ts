@@ -17,7 +17,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
       
   transition("void => *", [
     style({opacity: 0}),
-    animate(300)
+    animate(200)
   ]),
 
   transition("* => void", [
