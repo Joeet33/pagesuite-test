@@ -4,11 +4,16 @@
   (click)="onClickHandler(users.data)"
 >
   <div class="flex flex-col p-4 cursor-pointer">
-    <div class="mx-auto text-lg font-bold">{{ users.data.author }}</div>
+    <div class="mx-auto text-sm text-center font-bold break-all md:text-lg">
+      {{ users.data.author }}
+    </div>
 
     <div class="flex mt-2">
-      <img class="rounded-md border border-2 border-black" src={{users.data.thumbnail}} />
-      <div class="ml-3 my-auto">{{ users.data.title }}</div>
+      <img
+        class="rounded-md border border-2 border-black w-24 m-auto lg:m-1"
+        src={{users.data.thumbnail}}
+      />
+      <div class="hidden lg:block ml-3 my-auto">{{ users.data.title }}</div>
     </div>
   </div>
 </div>
